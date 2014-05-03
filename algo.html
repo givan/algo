@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script type="text/javascript" src="scripts/anagrams.js"></script>
+    <script type="text/javascript" src="bower_components/jquery/dist/jquery.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#btnGenerateAnagrams').click(function() {
+                var input = $('#anagram').val();
+               var anagrams = findAnagrams(input);
+                var anagramsString = anagrams.join(',');
+                alert(anagramsString);
+            });
+        });
+    </script>
+</head>
+<body>
+<input type="text" name="anagram" id="anagram"/>
+<input type="button" value="anagrams" id="btnGenerateAnagrams"/>
+</body>
+</html>

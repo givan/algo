@@ -1,0 +1,22 @@
+{
+  "name": "algo playground",
+  "version": "0.0.0",
+  "authors": [
+    "George Ivanov <george.ivanov@hotmail.com>"
+  ],
+  "description": "my algo playground",
+  "main": "?",
+  "license": "MIT",
+  "homepage": "www.givanov.net",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.1"
+  }
+}
