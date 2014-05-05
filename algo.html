@@ -3,21 +3,39 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title></title>
-    <script type="text/javascript" src="scripts/anagrams.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/style.css"/>
     <script type="text/javascript" src="bower_components/jquery/dist/jquery.js"></script>
+    <script type="text/javascript" src="scripts/anagrams.js"></script>
+    <script type="text/javascript" src="scripts/reverseString.js"></script>
+    <script type="text/javascript" src="scripts/removeDuplicateCharsInplace.js"></script>
     <script type="text/javascript">
-        $(document).ready(function() {
-            $('#btnGenerateAnagrams').click(function() {
-                var input = $('#anagram').val();
-               var anagrams = findAnagrams(input);
+
+        $(document).ready(function () {
+            $('#btnGenerateAnagrams').click(function () {
+                var input = $('#inputVal').val();
+                var anagrams = findAnagrams(input);
                 var anagramsString = anagrams.join(',');
                 alert(anagramsString);
+            });
+
+            $('#btnReverseString').click(function () {
+                var input = $('#inputVal').val();
+                var reversed = reverseString(input);
+                alert(reversed);
+            });
+
+            $('#btnRemoveDuplicateCharsInplace').click(function () {
+                var input = $('#inputVal').val();
+                var removedDuplicateChars = removeDuplicateCharsInplace(input);
+                alert(removedDuplicateChars);
             });
         });
     </script>
 </head>
 <body>
-<input type="text" name="anagram" id="anagram"/>
-<input type="button" value="anagrams" id="btnGenerateAnagrams"/>
+<div><input type="text" id="inputVal"/></div>
+<input type="button" class="algo-button" value="anagrams" id="btnGenerateAnagrams"/>
+<input type="button" class="algo-button" value="1.2 reverse string" id="btnReverseString"/>
+<input type="button" class="algo-button" value="remove dup chars" id="btnRemoveDuplicateCharsInplace"/>
 </body>
 </html>
