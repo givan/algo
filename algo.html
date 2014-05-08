@@ -8,7 +8,10 @@
     <script type="text/javascript" src="scripts/anagrams.js"></script>
     <script type="text/javascript" src="scripts/reverseString.js"></script>
     <script type="text/javascript" src="scripts/removeDuplicateCharsInplace.js"></script>
+    <script type="text/javascript" src="scripts/buildLinkedList.js"></script>
     <script type="text/javascript">
+
+        var linkedList = buildLinkedList("0");
 
         $(document).ready(function () {
             $('#btnGenerateAnagrams').click(function () {
@@ -29,6 +32,16 @@
                 var removedDuplicateChars = removeDuplicateCharsInplace(input);
                 alert(removedDuplicateChars);
             });
+
+            $('#btnBuildLinkedList').click(function () {
+                var input = $('#inputVal').val();
+                var newItem = new LinkedList(input);
+                linkedList.Append(newItem);
+
+                debugger
+
+                alert(newItem);
+            });
         });
     </script>
 </head>
@@ -37,5 +50,6 @@
 <input type="button" class="algo-button" value="anagrams" id="btnGenerateAnagrams"/>
 <input type="button" class="algo-button" value="1.2 reverse string" id="btnReverseString"/>
 <input type="button" class="algo-button" value="remove dup chars" id="btnRemoveDuplicateCharsInplace"/>
+<button class="algo-button" id="btnBuildLinkedList">BuildLinkedList</button>
 </body>
 </html>

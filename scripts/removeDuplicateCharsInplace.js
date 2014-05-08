@@ -7,6 +7,21 @@
  */
 function removeDuplicateCharsInplace(input) {
 
+    if (!input || typeof(input) !== 'string' || input.length === 0) {
+        throw new Error('input param must be a valid string');
+    }
+
+    // Test cases:
+    // 1/ empty string
+    // 2/ null string
+    // 3/ int value instead of a string
+    // 4/ a single char string 'a'
+    // 5/ all duplicate chars string 'aaaaaa'
+    // 6/ no duplicate chars 'abcd'
+    // 7/ duplicate string 'abcabc'
+    // 8/ string with continous duplicates 'aaaabbbbbb'
+    //
+
     var inputChars = input.split('');
 
     // Questions to ask - all the chars to the right will be replaced; it can be also to keep the last occurance
