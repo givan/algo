@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script type="text/javascript" src="bower_components/jquery/dist/jquery.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var host = document.querySelector("button");
+            var root = host.webkitCreateShadowRoot();
+            root.textContent = "This is the ShadowRoot";
+        });
+    </script>
+</head>
+<body>
+<div>
+    <p>This example is from the following link: </p>
+    <a href="http://www.html5rocks.com/en/tutorials/webcomponents/shadowdom/">ShadowDom 101</a>
+    <p>Works in Chrome 34. Does not work in Safari</p>
+</div>
+<div>
+    <button disabled="false">A normal button context</button>
+
+
+    <!--<style>-->
+        <!--.outer {-->
+            <!--border: 2px solid brown;-->
+            <!--border-radius: 1em;-->
+            <!--background: red;-->
+            <!--font-size: 20pt;-->
+            <!--width: 12em;-->
+            <!--height: 7em;-->
+            <!--text-align: center;-->
+        <!--}-->
+        <!--.boilerplate {-->
+            <!--color: white;-->
+            <!--font-family: sans-serif;-->
+            <!--padding: 0.5em;-->
+        <!--}-->
+        <!--.name {-->
+            <!--color: black;-->
+            <!--background: white;-->
+            <!--font-family: "Marker Felt", cursive;-->
+            <!--font-size: 45pt;-->
+            <!--padding-top: 0.2em;-->
+        <!--}-->
+    <!--</style>-->
+    <!--<div class="outer">-->
+        <!--<div class="boilerplate">-->
+            <!--Hi! My name is-->
+        <!--</div>-->
+        <!--<div class="name">-->
+            <!--Bob-->
+        <!--</div>-->
+    <!--</div>-->
+
+    <div id="nameTag">George</div>
+
+    <template id="nameTagTemplate">
+        <style>
+            .outer {
+                border: 2px solid brown;
+                border-radius: 1em;
+                background: red;
+                font-size: 20pt;
+                width: 12em;
+                height: 7em;
+                text-align: center;
+            }
+            .boilerplate {
+                color: white;
+                font-family: sans-serif;
+                padding: 0.5em;
+            }
+            .name {
+                color: black;
+                background: white;
+                font-family: "Marker Felt", cursive;
+                font-size: 45pt;
+                padding-top: 0.2em;
+            }
+        </style>
+        <div class="outer">
+            <div class="boilerplate">
+                Hi! My name is
+            </div>
+            <div class="name">
+                <content></content>
+            </div>
+        </div>
+    </template>
+
+    <script type="text/javascript">
+        var host = document.querySelector("#nameTag");
+        var originalName = host.textContent;
+        var shadow = host.webkitCreateShadowRoot();
+        var template = document.querySelector("#nameTagTemplate");
+        shadow.appendChild(template.content);
+        template.remove();
+    </script>
+
+</div>
+</body>
+</html>
