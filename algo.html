@@ -9,6 +9,7 @@
     <script type="text/javascript" src="scripts/reverseString.js"></script>
     <script type="text/javascript" src="scripts/removeDuplicateCharsInplace.js"></script>
     <script type="text/javascript" src="scripts/buildLinkedList.js"></script>
+    <script type="text/javascript" src="scripts/findkthElementInList.js"></script>
     <script type="text/javascript">
 
         var linkedList = buildLinkedList("0");
@@ -35,12 +36,21 @@
 
             $('#btnBuildLinkedList').click(function () {
                 var input = $('#inputVal').val();
-                var newItem = new LinkedList(input);
+                var newItem = new LinkedListNode(input);
                 linkedList.Append(newItem);
 
-                debugger
+                // debugger
 
                 alert(newItem);
+            });
+
+            $('#btnKthElement').click(function() {
+                var d = new LinkedListNode('d'),
+                    c = new LinkedListNode('c', d),
+                    b = new LinkedListNode('b', c),
+                    a = new LinkedListNode('a', b);
+
+                findkthElementInList(a, 2); // must be 'c'
             });
         });
     </script>
@@ -51,5 +61,6 @@
 <input type="button" class="algo-button" value="1.2 reverse string" id="btnReverseString"/>
 <input type="button" class="algo-button" value="remove dup chars" id="btnRemoveDuplicateCharsInplace"/>
 <button class="algo-button" id="btnBuildLinkedList">BuildLinkedList</button>
+<button class="algo-button" id="btnKthElement">Kth element in List</button>
 </body>
 </html>

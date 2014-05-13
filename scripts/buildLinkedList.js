@@ -1,27 +1,27 @@
 var buildLinkedList = function (itemData) {
-    return new LinkedList(itemData);
+    return new LinkedListNode(itemData);
 };
 
-function LinkedList(data, next) {
+function LinkedListNode(data, next) {
     this._data = data;
     this._next = next;
 };
 
-LinkedList.prototype.GetData = function () {
+LinkedListNode.prototype.GetData = function () {
     return this._data;
 };
 
-LinkedList.prototype.GetNext = function () {
+LinkedListNode.prototype.GetNext = function () {
     return this._next;
 };
 
-LinkedList.prototype.SetNext = function (item) {
+LinkedListNode.prototype.SetNext = function (item) {
     this._next = item;
 };
 
-LinkedList.prototype.Append = function (item) {
-    if (typeof(item) !== "object" || !(item instanceof LinkedList)) {
-        throw new Error('the item should be an instance of LinkedList');
+LinkedListNode.prototype.Append = function (item) {
+    if (typeof(item) !== "object" || !(item instanceof LinkedListNode)) {
+        throw new Error('the item should be an instance of LinkedListNode');
     }
 
     // move to the last element
