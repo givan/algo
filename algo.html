@@ -10,6 +10,7 @@
     <script type="text/javascript" src="scripts/removeDuplicateCharsInplace.js"></script>
     <script type="text/javascript" src="scripts/buildLinkedList.js"></script>
     <script type="text/javascript" src="scripts/findkthElementInList.js"></script>
+    <script type="text/javascript" src="scripts/removeElementInList.js"></script>
     <script type="text/javascript">
 
         var linkedList = buildLinkedList("0");
@@ -44,13 +45,34 @@
                 alert(newItem);
             });
 
-            $('#btnKthElement').click(function() {
+            /**
+             * Builds a sample single linked list and returns the head element
+             * @returns {LinkedListNode} The head element of the linked list
+             * @constructor
+             */
+            function BuildSampleLinkedList() {
                 var d = new LinkedListNode('d'),
-                    c = new LinkedListNode('c', d),
-                    b = new LinkedListNode('b', c),
-                    a = new LinkedListNode('a', b);
+                        c = new LinkedListNode('c', d),
+                        b = new LinkedListNode('b', c),
+                        a = new LinkedListNode('a', b);
 
-                findkthElementInList(a, 2); // must be 'c'
+                return a;
+            }
+
+            $('#btnKthElement').click(function() {
+                var head = BuildSampleLinkedList();
+
+                findkthElementInList(head, 2); // must be 'c'
+            });
+
+            $('#btnRemoveElementFromList').click(function() {
+                var head = BuildSampleLinkedList();
+
+                var input = $('#inputVal').val();
+
+                head = removeElementFromList(head, input);
+
+                console.log(head);
             });
         });
     </script>
@@ -62,5 +84,6 @@
 <input type="button" class="algo-button" value="remove dup chars" id="btnRemoveDuplicateCharsInplace"/>
 <button class="algo-button" id="btnBuildLinkedList">BuildLinkedList</button>
 <button class="algo-button" id="btnKthElement">Kth element in List</button>
+<button class="algo-button" id="btnRemoveElementFromList">Remove Elem from Linked List</button>
 </body>
 </html>
