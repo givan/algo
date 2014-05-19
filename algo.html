@@ -11,6 +11,8 @@
     <script type="text/javascript" src="scripts/buildLinkedList.js"></script>
     <script type="text/javascript" src="scripts/findkthElementInList.js"></script>
     <script type="text/javascript" src="scripts/removeElementInList.js"></script>
+    <script type="text/javascript" src="scripts/WeakMap.js"></script>
+    <script type="text/javascript" src="scripts/findCycleInList.js"></script>
     <script type="text/javascript">
 
         var linkedList = buildLinkedList("0");
@@ -74,6 +76,17 @@
 
                 console.log(head);
             });
+
+            $('#btnFindCycleInList1').click(function() {
+                var head = BuildSampleLinkedList();
+                var c = head.GetNext().GetNext();
+
+                c.GetNext().SetNext(c); // this causes cycle
+                // the list is now a -> b -> c -> d -> c
+
+                var cycleElement = findCycleInList(head);
+                console.log(cycleElement);
+            });
         });
     </script>
 </head>
@@ -85,5 +98,6 @@
 <button class="algo-button" id="btnBuildLinkedList">BuildLinkedList</button>
 <button class="algo-button" id="btnKthElement">Kth element in List</button>
 <button class="algo-button" id="btnRemoveElementFromList">Remove Elem from Linked List</button>
+<button class="algo-button" id="btnFindCycleInList1">Find Cycle in List (v1)</button>
 </body>
 </html>
