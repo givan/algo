@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<p>This example has been take from <a href="http://jimhoskins.com/2012/12/17/angularjs-and-apply.html">this</a> link
+</p>
+<button id="clickMe">ClickMe</button>
+
+<script type="text/javascript">
+    var button = document.getElementById('clickMe');
+
+    function buttonClicked () {
+        alert('the button was clicked');
+    }
+
+    button.addEventListener('click', buttonClicked);
+
+    function timerComplete () {
+        alert('timer complete');
+    }
+
+    setTimeout(timerComplete, 2000);
+</script>
+
+</body>
+</html>
