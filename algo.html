@@ -13,6 +13,8 @@
     <script type="text/javascript" src="scripts/removeElementInList.js"></script>
     <script type="text/javascript" src="scripts/WeakMap.js"></script>
     <script type="text/javascript" src="scripts/findCycleInList.js"></script>
+    <script type="text/javascript" src="scripts/mergeSort.js"></script>
+    <script type="text/javascript" src="scripts/quickSort.js"></script>
     <script type="text/javascript">
 
         var linkedList = buildLinkedList("0");
@@ -61,13 +63,13 @@
                 return a;
             }
 
-            $('#btnKthElement').click(function() {
+            $('#btnKthElement').click(function () {
                 var head = BuildSampleLinkedList();
 
                 findkthElementInList(head, 2); // must be 'c'
             });
 
-            $('#btnRemoveElementFromList').click(function() {
+            $('#btnRemoveElementFromList').click(function () {
                 var head = BuildSampleLinkedList();
 
                 var input = $('#inputVal').val();
@@ -77,7 +79,7 @@
                 console.log(head);
             });
 
-            $('#btnFindCycleInList1').click(function() {
+            $('#btnFindCycleInList1').click(function () {
                 var head = BuildSampleLinkedList();
                 var c = head.GetNext().GetNext();
 
@@ -87,17 +89,57 @@
                 var cycleElement = findCycleInList(head);
                 console.log(cycleElement);
             });
+
+            $('#btnMergeSort').click(function () {
+
+                var input = [];
+                var inputVal = $('#inputVal').val();
+                inputVal.split(',').forEach(function (val) {
+                    input.push(parseInt(val));
+                });
+
+                var expected = input.sort();
+
+                var start = performance.now();
+                var result = mergeSort(input);
+                var end = performance.now();
+
+                console.log('mergeSort: expected: ' + expected.join(','));
+                console.log('mergeSort: actual: ' + result.join(',') + ' took: ' + (end - start) + ' ms');
+            });
+            $('#btnQuickSort').click(function () {
+
+                var input = [];
+                var inputVal = $('#inputVal').val();
+                inputVal.split(',').forEach(function (val) {
+                    input.push(parseInt(val));
+                });
+
+                var expected = input.sort();
+
+                var start = performance.now();
+                var result = quickSort(input);
+                var end = performance.now();
+
+                console.log('quickSort: expected: ' + expected.join(','));
+                console.log('quickSort: actual: ' + result.join(',') + ' took: ' + (end - start) + ' ms');
+            });
         });
     </script>
 </head>
 <body>
-<div><input type="text" id="inputVal"/></div>
-<input type="button" class="algo-button" value="anagrams" id="btnGenerateAnagrams"/>
-<input type="button" class="algo-button" value="1.2 reverse string" id="btnReverseString"/>
-<input type="button" class="algo-button" value="remove dup chars" id="btnRemoveDuplicateCharsInplace"/>
+<div style="width:100%"><input type="text" id="inputVal"/></div>
+
+<div>
+<button class="algo-button" id="btnGenerateAnagrams">anagrams</button>
+<button class="algo-button" id="btnReverseString">1.2 reverse string</button>
+<button class="algo-button" id="btnRemoveDuplicateCharsInplace">remove dup chars</button>
 <button class="algo-button" id="btnBuildLinkedList">BuildLinkedList</button>
 <button class="algo-button" id="btnKthElement">Kth element in List</button>
 <button class="algo-button" id="btnRemoveElementFromList">Remove Elem from Linked List</button>
 <button class="algo-button" id="btnFindCycleInList1">Find Cycle in List (v1)</button>
+<button class="algo-button" id="btnMergeSort">Merge Sort</button>
+<button class="algo-button" id="btnQuickSort">Quick Sort</button>
+</div>
 </body>
 </html>
